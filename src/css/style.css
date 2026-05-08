@@ -1,0 +1,362 @@
+/* Apple-inspired Minimalist Style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', sans-serif;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    line-height: 1.4;
+    padding: 32px 24px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header - прозрачный, минимальный */
+header {
+    background: transparent;
+    padding: 0 0 24px 0;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #e9e9ef;
+}
+
+h1 {
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #1d1d1f, #6e6e73);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 6px;
+}
+
+.sub {
+    font-size: 17px;
+    color: #6e6e73;
+    font-weight: 400;
+}
+
+/* Tabs меню - как в macOS */
+.tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    padding: 6px;
+    border-radius: 100px;
+    border: 0.5px solid rgba(0, 0, 0, 0.04);
+    width: fit-content;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6e6e73;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.tab-btn.active {
+    background: #ffffff;
+    color: #1d1d1f;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tab-btn:hover:not(.active) {
+    color: #1d1d1f;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+/* Контент */
+.tab-content {
+    display: none;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+    border: 0.5px solid #e9e9ef;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    color: #1d1d1f;
+    margin-bottom: 20px;
+}
+
+/* Фильтры упражнений */
+.filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f4;
+}
+
+.filter-btn {
+    background: #f5f5f7;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6e6e73;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.filter-btn.active-filter {
+    background: #1d1d1f;
+    color: #ffffff;
+}
+
+.filter-btn:hover:not(.active-filter) {
+    background: #e9e9ef;
+    color: #1d1d1f;
+}
+
+/* Сетка упражнений */
+.exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.exercise-card {
+    background: #fbfbfd;
+    border-radius: 16px;
+    padding: 20px;
+    border: 0.5px solid #e9e9ef;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.exercise-card:hover {
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+}
+
+.exercise-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #1d1d1f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.muscle-badge {
+    font-size: 11px;
+    font-weight: 500;
+    background: #e9e9ef;
+    padding: 4px 10px;
+    border-radius: 30px;
+    color: #6e6e73;
+    letter-spacing: -0.2px;
+}
+
+.exercise-desc {
+    font-size: 14px;
+    color: #6e6e73;
+    line-height: 1.45;
+    display: none;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 0.5px solid #e9e9ef;
+}
+
+.exercise-card.open .exercise-desc {
+    display: block;
+}
+
+/* Недельный график */
+.week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.day-card {
+    background: #fbfbfd;
+    border-radius: 14px;
+    padding: 16px 8px;
+    text-align: center;
+    border: 0.5px solid #e9e9ef;
+}
+
+.day-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #6e6e73;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.workout-plan {
+    background: #f5f5f7;
+    padding: 8px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1d1d1f;
+}
+
+.rest {
+    background: #fef2f0;
+    color: #c4553c;
+}
+
+/* Таблица дневника */
+.log-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.log-table th {
+    text-align: left;
+    padding: 12px 8px;
+    font-weight: 600;
+    color: #6e6e73;
+    border-bottom: 1px solid #e9e9ef;
+}
+
+.log-table td {
+    padding: 14px 8px;
+    border-bottom: 0.5px solid #f0f0f4;
+    color: #1d1d1f;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: #86868b;
+    cursor: pointer;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+.delete-btn:hover {
+    color: #ff3b30;
+}
+
+/* Формы */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #1d1d1f;
+    display: block;
+    margin-bottom: 6px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    font-family: inherit;
+    background: #fbfbfd;
+    border: 0.5px solid #d9d9e3;
+    border-radius: 12px;
+    transition: all 0.2s;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: #007aff;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+button.primary {
+    background: #007aff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 100px;
+    font-weight: 500;
+    font-size: 15px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: auto;
+    min-width: 140px;
+}
+
+button.primary:hover {
+    background: #005fc1;
+    transform: scale(0.98);
+}
+
+/* Статистика */
+.stats-block {
+    margin-top: 24px;
+    background: #f5f5f7;
+    padding: 16px 20px;
+    border-radius: 14px;
+    font-size: 14px;
+    color: #1d1d1f;
+    border-left: 3px solid #007aff;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 16px;
+    }
+    
+    .week-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tabs {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .tab-btn {
+        padding: 6px 16px;
+        font-size: 13px;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+    
+    .tab-content {
+        padding: 20px;
+    }
+}
