@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фитнес-трекер | Главная</title>
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="header-content">
+            <div>
+                <h1>Фитнес-трекер</h1>
+                <div class="sub">Ваш путь к лучшей версии себя</div>
+            </div>
+            <div class="user-menu" id="userMenu">
+                <span class="user-name" id="userName"></span>
+                <button class="logout-btn" id="logoutBtn">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="schedule">📅 График</button>
+        <button class="tab-btn" data-tab="exercises">💪 Упражнения</button>
+        <button class="tab-btn" data-tab="diary">📖 Дневник</button>
+        <button class="tab-btn" data-tab="add">➕ Запись</button>
+    </div>
+
+    <div id="schedule" class="tab-content active">
+        <h2>Недельная программа</h2>
+        <div class="week-grid" id="weekGrid"></div>
+        <div class="form-card">
+            <h3>Редактировать график</h3>
+            <div class="form-group">
+                <label>День недели</label>
+                <select id="daySelect">
+                    <option value="0">Понедельник</option>
+                    <option value="1">Вторник</option>
+                    <option value="2">Среда</option>
+                    <option value="3">Четверг</option>
+                    <option value="4">Пятница</option>
+                    <option value="5">Суббота</option>
+                    <option value="6">Воскресенье</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Название тренировки</label>
+                <input type="text" id="workoutInput" placeholder="Например: Грудные, Ноги, Отдых">
+            </div>
+            <button class="primary" id="updateScheduleBtn">Сохранить изменения</button>
+        </div>
+    </div>
+
+    <div id="exercises" class="tab-content">
+        <h2>База упражнений</h2>
+        <div class="filters" id="muscleFilters"></div>
+        <div class="exercises-grid" id="exercisesGrid"></div>
+    </div>
+
+    <div id="diary" class="tab-content">
+        <h2>Дневник тренировок</h2>
+        <div class="stats-card" id="statsArea"></div>
+        <div class="table-wrapper">
+            <table class="log-table">
+                <thead>
+                    <tr><th>Дата</th><th>Упражнение</th><th>Подходы</th><th>Повторы</th><th>Вес (кг)</th><th></th></tr>
+                </thead>
+                <tbody id="logBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="add" class="tab-content">
+        <h2>Новая запись</h2>
+        <div class="form-card">
+            <div class="form-group"><label>Дата тренировки</label><input type="date" id="workoutDate"></div>
+            <div class="form-group"><label>Упражнение</label><select id="exerciseSelect"></select></div>
+            <div class="form-row">
+                <div class="form-group"><label>Подходы</label><input type="number" id="sets" value="3" min="1"></div>
+                <div class="form-group"><label>Повторения</label><input type="number" id="reps" value="10" min="1"></div>
+                <div class="form-group"><label>Вес (кг)</label><input type="number" id="weight" value="50" min="0" step="2.5"></div>
+            </div>
+            <button class="primary" id="addLogBtn">Добавить запись</button>
+        </div>
+    </div>
+</div>
+
+<script src="src/js/main.js"></script>
+</body>
+</html>
